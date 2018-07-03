@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var note = [15,12,18,14,16,16,19,13,11,10,16,15];
+        var moyenne;
+
+        function calculerMoyenne(note) {
+        var somme = 0;
+
+        for (var i=0; i<note.length;i++) {
+            somme += note[i];
+            }
+
+        return somme / note.length;
+        }
+
+        moyenne = calculerMoyenne(note);
+
+        document.write(moyenne.toFixed(2));
+    </script>
+</body>
+</html>
