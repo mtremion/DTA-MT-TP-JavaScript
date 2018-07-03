@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8"/>
+        <link rel="stylesheet" media="screen" href="todo_list.css" />
+    </head>
+    <body>
+        <div class="content">
+            <h1>TODO List</h1>
+            <ul id="todolist">
+            </ul>
+            <input id="todotxt" type="text" />
+            <button id="addtodo" type="button">Ajouter</button>
+            
+            <script>
+                document.getElementById("addtodo").addEventListener('click',addTask,false);
+              //  document.getElementById("").addEventListener('click',deleteTask,false);
+
+                function addTask()
+                {
+                    var newTask = document.createElement("li"); 
+                    var newText = document.createTextNode(document.getElementById('todotxt').value);
+                    var att = document.createAttribute("onClick");
+                    att.value="deleteTask(this)";
+                    newTask.setAttributeNode(att);
+                    newTask.appendChild(newText);
+                    document.getElementById("todolist").appendChild(newTask);
+                }
+
+                function deleteTask(obj)
+                {
+                   var fini = confirm("Avez vous terminée cette tâche ?");
+                   if(fini)
+                   {
+                    document.getElementById("todolist").removeChild(obj);
+                   }
+                }
+
+            </script>
+
+        </div>
+    </body>
+</html>
