@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="submit" value="Liste utilisateurs" id="afficherUsersButton" />
+    <div id="afficherUsers"></div>
+    <input type="submit" value="Liste hobbies" id="afficherHobbiesButton" />
+    <div id="afficherHobbies"></div>
+    <br />
+    <form method="POST" action="http://loisirs-web-backend.cleverapps.io/users">
+        <input type="text" id ="textName"/>
+        <input type="text" id ="textPwd"/>
+        <input type="submit" id ="addUserButton" value="Ajouter user"/>
+    </form>
+    
+    
+
+    <script>
+
+        document.getElementById("afficherUsersButton").addEventListener('click',listUser,false);
+        document.getElementById("afficherHobbiesButton").addEventListener('click',listHobbie,false);
+        document.getElementById("addUserButton").addEventListener('click',addUsers,false);
+
+        function afficherUser(event) 
+        {   
+            var xhttp = event.target;
+        // Typical action to be performed when the document is ready:
+            document.getElementById("afficherUsers").innerHTML = xhttp.responseText;
+            var json = JSON.parse(xhttp.responseText);
+
+            json.forEach(element => {
+                console.log(element.name+', '+element.password);
+            });
+        }
+
+        function listUser()
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = afficherUser;
+            xhttp.open("GET","http://loisirs-web-backend.cleverapps.io/users", true);
+            xhttp.send();
+        }
+
+        function afficherHobbie(event) 
+        {   
+            var xhttp = event.target;
+        // Typical action to be performed when the document is ready:
+            document.getElementById("afficherHobbies").innerHTML = xhttp.responseText;
+            var json = JSON.parse(xhttp.responseText);
+
+            json.forEach(element => {
+                console.log(element.name+', '+element.password);
+            });
+        }
+
+        function listHobbie()
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = afficherHobbie;
+            xhttp.open("GET","http://loisirs-web-backend.cleverapps.io/hobbies", true);
+            xhttp.send();
+        }
+
+         function addUser(event) 
+        {   
+            var xhttp = event.target;
+        // Typical action to be performed when the document is ready:
+            document.getElementById("afficherHobbies").innerHTML = xhttp.responseText;
+            var json = JSON.parse(xhttp.responseText);
+
+            json.forEach(element => {
+                console.log(element.name+', '+element.password);
+            });
+
+            var user= JSON.stringify(document.getElementById("textName", document.getElementById("textPwd")));
+
+            json.add(user)
+        }
+
+        function addUsers()
+        {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = addUser;
+            xhttp.open("POST","http://loisirs-web-backend.cleverapps.io/users", true);
+            xhttp.send(body);
+        }
+        
+    </script>
+</body>
+</html>
