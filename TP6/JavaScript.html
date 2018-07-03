@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="button" value="Rouge" id="Rouge"/>
+    <input type="button" value="Bleu" id="Bleu" />
+    <input type="button" value="Vert" id="Vert" />
+     
+    <br/>
+
+    <div id="boiteColore" 
+    style="height:150px;width:150px;background-color:black;"></div>
+
+    <script>
+        document.getElementById('Rouge').addEventListener('click',changerCouleur,false);
+        document.getElementById('Rouge').param='red';
+        document.getElementById('Bleu').addEventListener('click',changerCouleur,false);
+        document.getElementById('Bleu').param='blue';
+        document.getElementById('Vert').addEventListener('click',changerCouleur,false);
+        document.getElementById('Vert').param='green';
+
+        function changerCouleur(event)
+        {
+            document.getElementById('boiteColore').style.backgroundColor = event.target.param;
+        }
+    </script>    
+
+</body>
+</html>
