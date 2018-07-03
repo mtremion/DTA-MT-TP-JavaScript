@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        var actu=1;
+
+        document.write("<table bgcolor=\"#00C9D0\" border=1px width=300px height=100px  align=\"center\"> <caption>Je suis un titre de tableau :-)<caption/>");
+
+        for(var i = 0; i<3; i++)
+        {
+            document.write("<tr>");
+            for(var j=0; j<4 ; j++)
+            {
+                document.write("<td align=\"center\" bgcolor=\"#A4FBFE\">",actu,"</td>");
+                actu++;
+            }
+            document.write("</tr> <br />")
+        }
+
+        document.write("</table>");
+    </script>  
+</body>
+</html>
